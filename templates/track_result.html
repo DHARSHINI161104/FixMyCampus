@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="track-card">
+    <div class="card shadow">
+      <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+        <h4 class="mb-0"><i class="bi bi-hash me-2 text-teal"></i>Complaint Status</h4>
+        <span class="badge bg-{{ {'Pending':'pending','In Progress':'inprogress','Resolved':'resolved','Rejected':'rejected'}.get(complaint.status,'pending') }}">{{ complaint.status }}</span>
+      </div>
+      <div class="card-body p-4">
+        <div class="row g-3 mb-4">
+          <div class="col-md-6">
+            <div class="fw-bold text-muted small">Complaint ID</div>
+            <div class="fw-bold">{{ complaint.complaint_id }}</div>
+          </div>
+          <div class="col-md-6">
+            <div class="fw-bold text-muted small">Status</div>
+            <div>{{ complaint.status }}</div>
+          </div>
+          <div class="col-md-6">
+            <div class="fw-bold text-muted small">Category</div>
+            <div>{{ complaint.category|title }}</div>
+          </div>
+          <div class="col-md-6">
+            <div class="fw-bold text-muted small">Priority</div>
+            <div class="badge bg-{{ {'High':'danger','Urgent':'danger','Medium':'warning','Low':'secondary'}.get(complaint.priority,'secondary') }}">{{ complaint.priority }}</div>
+          </div>
+          <div class="col-12">
+            <div class="fw-bold text-muted small">Location</div>
+            <div>{{ complaint.location }}</div>
+          </div>
+          <div class="col-12">
+            <div class="fw-bold text-muted small">Description</div>
+            <div>{{ complaint.description }}</div>
+          </div>
+        </div>
+        {% if complaint.admin_notes %}
+          <div class="mb-4">
+            <div class="fw-bold text-muted small">Admin Notes</div>
+            <div class="bg-light p-3 rounded">{{ complaint.admin_notes }}</div>
+          </div>
+        {% endif %}
+        <div class="row g-3">
+          <div class="col-md-6">
+            <div class="fw-bold text-muted small">Reported On</div>
+            <div>{{ complaint.created_at.strftime('%Y-%m-%d %H:%M') }}</div>
+          </div>
+          <div class="col-md-6">
+            <div class="fw-bold text-muted small">Last Updated</div>
+            <div>{{ complaint.updated_at.strftime('%Y-%m-%d %H:%M') }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-3">
+      <a href="{{ url_for('main.track') }}" class="btn btn-outline-teal">Track Another Complaint</a>
+      <a href="{{ url_for('main.index') }}" class="btn btn-teal">Back to Home</a>
+    </div>
+  </div>
+{% endblock %}

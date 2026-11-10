@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="row justify-content-center">
+    <div class="col-lg-7">
+      <div class="card shadow">
+        <div class="card-header bg-white py-3">
+          <h4 class="mb-0"><i class="bi bi-file-earmark-plus me-2 text-teal"></i>Report a New Issue</h4>
+        </div>
+        <div class="card-body p-4">
+          <form method="POST" novalidate>
+            {{ form.hidden_tag() }}
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">{{ form.name.label }}</label>
+                {{ form.name(class="form-control", placeholder="e.g. Aarav Sharma") }}
+                {% for error in form.name.errors %}
+                  <div class="invalid-feedback d-block">{{ error }}</div>
+                {% endfor %}
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">{{ form.email.label }}</label>
+                {{ form.email(class="form-control", placeholder="e.g. student@college.edu") }}
+                {% for error in form.email.errors %}
+                  <div class="invalid-feedback d-block">{{ error }}</div>
+                {% endfor %}
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">{{ form.phone.label }}</label>
+                {{ form.phone(class="form-control", placeholder="e.g. 9876543210") }}
+                {% for error in form.phone.errors %}
+                  <div class="invalid-feedback d-block">{{ error }}</div>
+                {% endfor %}
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">{{ form.category.label }}</label>
+                {{ form.category(class="form-select") }}
+                {% for error in form.category.errors %}
+                  <div class="invalid-feedback d-block">{{ error }}</div>
+                {% endfor %}
+              </div>
+              <div class="col-12">
+                <label class="form-label">{{ form.location.label }}</label>
+                {{ form.location(class="form-control", placeholder="e.g. Hostel B - Room 312") }}
+                {% for error in form.location.errors %}
+                  <div class="invalid-feedback d-block">{{ error }}</div>
+                {% endfor %}
+              </div>
+              <div class="col-12">
+                <label class="form-label">{{ form.description.label }}</label>
+                {{ form.description(class="form-control", rows="5", placeholder="Describe the issue in detail...") }}
+                {% for error in form.description.errors %}
+                  <div class="invalid-feedback d-block">{{ error }}</div>
+                {% endfor %}
+              </div>
+            </div>
+            <div class="text-end mt-4">
+              {{ form.submit(class="btn btn-teal px-4") }}
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="mt-4 text-center text-muted small">
+        Already reported? <a href="{{ url_for('main.track') }}" class="text-teal fw-bold">Track your complaint</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

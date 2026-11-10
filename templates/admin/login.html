@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="card shadow">
+        <div class="card-header bg-white py-3">
+          <h4 class="mb-0"><i class="bi bi-box-seal me-2 text-teal"></i>Admin Login</h4>
+        </div>
+        <div class="card-body p-4">
+          <form method="POST" novalidate>
+            {{ form.hidden_tag() }}
+            <div class="mb-3">
+              <label class="form-label">{{ form.username.label }}</label>
+              {{ form.username(class="form-control", placeholder="Username") }}
+              {% for error in form.username.errors %}
+                <div class="invalid-feedback d-block">{{ error }}</div>
+              {% endfor %}
+            </div>
+            <div class="mb-3">
+              <label class="form-label">{{ form.password.label }}</label>
+              {{ form.password(class="form-control", placeholder="Password") }}
+              {% for error in form.password.errors %}
+                <div class="invalid-feedback d-block">{{ error }}</div>
+              {% endfor %}
+            </div>
+            <div class="d-grid">
+              {{ form.submit(class="btn btn-teal px-4") }}
+            </div>
+          </form>
+        </div>
+        <div class="card-footer bg-white text-center">
+          <p class="mb-0 small text-muted">Log in with your configured admin credentials.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

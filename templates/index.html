@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <!-- Hero -->
+  <section class="hero text-center">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <span class="badge bg-teal-light text-teal fw-bold text-uppercase small letter-spacing">Campus Maintenance Portal</span>
+          <h1 class="mb-4">Report. Track. Resolve.</h1>
+          <p class="lead mb-4">FixMyCampus helps students report campus maintenance issues instantly, get a unique Complaint ID, and track resolution status in real time.</p>
+          <div class="hero-actions">
+            <a href="{{ url_for('main.report') }}" class="btn btn-teal btn-lg px-4 py-3">
+              <i class="bi bi-plus-circle me-2"></i> Report an Issue
+            </a>
+            <a href="{{ url_for('main.track') }}" class="btn btn-outline-teal btn-lg px-4 py-3">
+              <i class="bi bi-search me-2"></i> Track Complaint
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="py-5 bg-white">
+    <div class="container">
+      <div class="section-title">
+        <h2>How It Works</h2>
+        <p class="section-subtitle">Simple steps to get your campus issue fixed faster.</p>
+      </div>
+      <div class="row g-4 text-center">
+        <div class="col-md-4">
+          <div class="step-icon"><i class="bi bi-file-earmark-plus"></i></div>
+          <h4>1. Report Issue</h4>
+          <p class="text-muted small">Fill in the issue details — category, location, and description.</p>
+        </div>
+        <div class="col-md-4">
+          <div class="step-icon"><i class="bi bi-hash"></i></div>
+          <h4>2. Get Complaint ID</h4>
+          <p class="text-muted small">Receive a unique Complaint ID to track your request.</p>
+        </div>
+        <div class="col-md-4">
+          <div class="step-icon"><i class="bi bi-clock-history"></i></div>
+          <h4>3. Track Status</h4>
+          <p class="text-muted small">Use your Complaint ID to check progress and resolution.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="py-5">
+    <div class="container">
+      <div class="section-title">
+        <h2>Complaint Categories</h2>
+        <p class="section-subtitle">Report issues across all campus facilities.</p>
+      </div>
+      <div class="row g-3">
+        <div class="col-md-3 col-6">
+          <div class="card h-100 text-center p-3">
+            <div class="benefit-icon"><i class="bi bi-lightning-charge"></i></div>
+            <div class="fw-bold">Electricity</div>
+            <div class="text-muted small">Power outages, fans, lights</div>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="card h-100 text-center p-3">
+            <div class="benefit-icon"><i class="bi bi-water"></i></div>
+            <div class="fw-bold">Plumbing</div>
+            <div class="text-muted small">Water leaks, washrooms</div>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="card h-100 text-center p-3">
+            <div class="benefit-icon"><i class="bi bi-wifi"></i></div>
+            <div class="fw-bold">Internet</div>
+            <div class="text-muted small">Wi-Fi, network access</div>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="card h-100 text-center p-3">
+            <div class="benefit-icon"><i class="bi bi-trash"></i></div>
+            <div class="fw-bold">Cleanliness</div>
+            <div class="text-muted small">Hygiene, waste, pest control</div>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="card h-100 text-center p-3">
+            <div class="benefit-icon"><i class="bi bi-chair"></i></div>
+            <div class="fw-bold">Furniture</div>
+            <div class="text-muted small">Benches, desks, fixtures</div>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="card h-100 text-center p-3">
+            <div class="benefit-icon"><i class="bi bi-shield-lock"></i></div>
+            <div class="fw-bold">Security</div>
+            <div class="text-muted small">CCTV, lighting, safety</div>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="card h-100 text-center p-3">
+            <div class="benefit-icon"><i class="bi bi-building"></i></div>
+            <div class="fw-bold">Hostel</div>
+            <div class="text-muted small">Rooms, common areas</div>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="card h-100 text-center p-3">
+            <div class="benefit-icon"><i class="bi bi-cup-hot"></i></div>
+            <div class="fw-bold">Canteen</div>
+            <div class="text-muted small">Mess, food, utensils</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="py-5 bg-gray">
+    <div class="container">
+      <div class="section-title">
+        <h2>Why FixMyCampus?</h2>
+        <p class="section-subtitle">A transparent issue management system for every student.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="benefit-icon"><i class="bi bi-speedometer2"></i></div>
+              <h4 class="card-title">Unique Complaint ID</h4>
+              <p class="text-muted small">Every report gets a trackable ID — no lost complaints.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="benefit-icon"><i class="bi bi-eye"></i></div>
+              <h4 class="card-title">Real-Time Status</h4>
+              <p class="text-muted small">Track progress from Pending to Resolved instantly.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="benefit-icon"><i class="bi bi-shield-check"></i></div>
+              <h4 class="card-title">Admin Dashboard</h4>
+              <p class="text-muted small">Campus staff manage and update complaints easily.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-5 text-center">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-7">
+          <h2>Have a campus issue?</h2>
+          <p class="text-muted">Report it now and get your Complaint ID in seconds.</p>
+          <a href="{{ url_for('main.report') }}" class="btn btn-teal btn-lg px-4 py-3 mt-3">
+            <i class="bi bi-plus-circle me-2"></i> Report an Issue
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
